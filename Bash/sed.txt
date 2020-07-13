@@ -1,0 +1,23 @@
+SED
+
+sed 'condition' 'action' 'file'
+
+Condition - select matched lines:
+	blank (all),   7  ,   1,4  ,  10,$
+
+Action:
+d - delete lines
+	sed '1d' file.txt - deletes first line
+p - print lines (with -n to only print selected lines)
+	sed -n '/a/p' file.txt - prints only lines containing 'a'
+s/{old}/{new}/g - substitute 'old' with 'new' at all occurences
+	sed 's/a/b/g' - substitutes all 'a's for 'b's
+i - insert lines
+	sed '2iHello' file.txt - insert 'Hello' before 2nd line
+c - change lines
+	sed '2cHello' file.txt - change 2nd line to 'Hello'
+
+To write changes to file:
+	sed -i 'condition' 'action' 'file'
+To write changes to new file:
+	sed 'condition' 'action' 'file' > 'newfile'

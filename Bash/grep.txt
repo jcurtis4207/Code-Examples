@@ -1,0 +1,26 @@
+GREP
+
+grep 'target' 'file'
+or egrep for extended functions
+
+-n : show line numbers
+-w : shows only whole words
+-i : ignore case
+
+Basic Regex Functions:
+. - any single character
+n* - 'n' can appear any number of times
+m{n} - 'm' must appear 'n' times in a row
+m{n,p} - 'm' must appear in the range of n-p times
+[xzy] - must be either 'x', 'y', or 'z'
+[x-z] - must be in range of x-z
+\ - converts character into literal - such as \s = space
+
+Extended Regex Functions:
+| - or        'this | that'
+n? - 'n' must appear 0 or 1 times
+n+ - 'n' must appear 1 or more times
+() - grouping        '(H|h)ello'
+
+^,$ for start,end of line
+[^n] = NOT n        [^a-m] = NOT [a-m]

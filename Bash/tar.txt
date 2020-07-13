@@ -1,0 +1,22 @@
+TAR
+
+tar -cf {new file} {old dir}  			create new tar file from directory
+tar -tf {tar file}  					view tar file and hierarchy
+tar -rf {tar file} {another file} 	 	add another file to existing tar
+tar -xf {tar file}						extract tar into current directory
+
+-v		verbose progress
+-z 		compress via gzip
+
+
+	Compress.sh
+echo "Enter folder to be archived"
+read folder_name
+archive_name=${folder_name// /_}
+tar -czvf - "$folder_name" | split -b 4000M -a 3 -d - $archive_name.tar.
+
+
+	Expand.sh
+echo "Enter archive to be expanded"
+read archive
+cat $archive.tar.* | tar zxvf -

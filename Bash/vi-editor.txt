@@ -1,0 +1,23 @@
+VI
+
+vi {file} - open 'file' in vi (or create new file)
+
+{Esc} - Command Mode
+{o} - Text Mode
+
+:w - save
+:q - quit
+:wq - save and quit
+:q! - quit without saving
+u - undo
+
+:{n} - go to line 'n'
+:$ - go to last line
+dd - delete current line
+{n}yy - copy 'n' lines
+p - paste
+
+/{chars} - search for {chars}
+:s/{1}/{2} - replace '1' with '2' at next occurence
+:s/{1}/{2}/g - replace '1' with '2' at all occurences in current line
+:%s/{1}/{2}/g - replace '1' with '2' at all occurences in all lines
