@@ -1,0 +1,17 @@
+File Setup
+
+package main
+
+import "fmt"
+
+func main(){
+	fmt.Println("Hello")
+}
+
+
+Imports with Alias
+
+import (
+	"fmt"
+	t "time"		//alias "time" as 't'
+)
