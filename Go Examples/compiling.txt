@@ -1,0 +1,7 @@
+Compiling and Running Go Programs
+
+go build <file.go>
+./file
+
+or in one step:
+go run <file.go>
