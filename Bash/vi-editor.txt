@@ -2,22 +2,57 @@ VI
 
 vi {file} - open 'file' in vi (or create new file)
 
-{Esc} - Command Mode
-{o} - Text Mode
+Esc - Normal Mode
+i - Insert Mode (a to enter at next character - append)
+V - Visual Mode
+
+h,j,k,l - left, down, up, right cursor
+ctrl+o - return to previous cursor location
 
 :w - save
 :q - quit
+ZZ - quit
 :wq - save and quit
 :q! - quit without saving
+
+:!{command} - run shell command within vi
+:read !{command} - insert ouput of shell command on next line
+:{n}read !{command} - insert ouput of shell command on line after 'n'
+
 u - undo
+ctrl+r - redo
 
-:{n} - go to line 'n'
+gg - go to 1st line
+G - go to last line
 :$ - go to last line
-dd - delete current line
-{n}yy - copy 'n' lines
-p - paste
+:{n} - go to line 'n'
+{n}G - go to line 'n'
 
-/{chars} - search for {chars}
+r{c} - replace current character with 'c'
+ce - delete word and enter insert mode - change word
+C - delete line and enter insert mode - change line
+
+dw - delete current word
+dd - delete (cut) current line
+D - delete from current to end of line
+
+yw - copy current word
+yy - copy current line
+y$ - copy from current to end of line
+{n}yy - copy 'n' lines
+p - paste after current line
+
+/{chars} - search forward for {chars}
+?{chars} - search backward for {chars}
+
 :s/{1}/{2} - replace '1' with '2' at next occurence
 :s/{1}/{2}/g - replace '1' with '2' at all occurences in current line
 :%s/{1}/{2}/g - replace '1' with '2' at all occurences in all lines
+:n,m2/{1}/{2}/g - replace '1' with '2' at all occurences on lines 'n-m'
+
+g/{pattern}/{command} - for every line with matching 'pattern' do 'command'
+    ex. g/import/d - delete every line containing word 'import'
+g!/{pattern}/{command} - for every line without matching 'pattern' do 'command'
+
+*** To find available commands that begin with :{c}
+*** Type :{c}, then ctrl+d
