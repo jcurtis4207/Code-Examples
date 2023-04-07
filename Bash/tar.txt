@@ -1,22 +1,42 @@
 TAR
 
-tar -cf {new file} {old dir}  			create new tar file from directory
-tar -tf {tar file}  					view tar file and hierarchy
-tar -rf {tar file} {another file} 	 	add another file to existing tar
-tar -xf {tar file}						extract tar into current directory
+tar -cf {new file} {old dir}            create new tar file from directory
+tar -tf {tar file}                      view tar file and hierarchy
+tar -rf {tar file} {another file}       add another file to existing tar
+tar -xf {tar file}                      extract tar into current directory
 
--v		verbose progress
--z 		compress via gzip
+-v    verbose progress
+-z    compress via gzip
 
 
-	Compress.sh
+    Compress.sh
 echo "Enter folder to be archived"
 read folder_name
 archive_name=${folder_name// /_}
 tar -czvf - "$folder_name" | split -b 4000M -a 3 -d - $archive_name.tar.
 
 
-	Expand.sh
+    Expand.sh
 echo "Enter archive to be expanded"
 read archive
 cat $archive.tar.* | tar zxvf -
+
+
+# ======================
+# Examples
+# ======================
+
+# To create an uncompressed tar from all c files
+tar cvf archive.tar *.c
+
+# To create a compressed tar from src directory
+tar cvfz archive.tar.gz src
+
+# To extract an uncompressed tar in current directory
+tar xvf archive.tar
+
+# To extract a compressed tar in current directory
+tar xvzf archive.tar.gz
+
+# To extract a tar to /tmp
+tar xvzf arvhie.tar.gz -C "/tmp"

@@ -24,3 +24,13 @@ n+ - 'n' must appear 1 or more times
 
 ^,$ for start,end of line
 [^n] = NOT n        [^a-m] = NOT [a-m]
+
+
+# ======================
+# Examples
+# ======================
+
+To print only the uncommented and non-empty lines in a file:
+```
+grep -v '^ *#' FILENAME | grep -v '^$'
+```

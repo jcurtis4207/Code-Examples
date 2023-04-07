@@ -3,21 +3,35 @@ SED
 sed 'condition' 'action' 'file'
 
 Condition - select matched lines:
-	blank (all),   7  ,   1,4  ,  10,$
+    blank (all),   7  ,   1,4  ,  10,$
 
 Action:
 d - delete lines
-	sed '1d' file.txt - deletes first line
+    sed '1d' file.txt - deletes first line
 p - print lines (with -n to only print selected lines)
-	sed -n '/a/p' file.txt - prints only lines containing 'a'
+    sed -n '/a/p' file.txt - prints only lines containing 'a'
 s/{old}/{new}/g - substitute 'old' with 'new' at all occurences
-	sed 's/a/b/g' - substitutes all 'a's for 'b's
+    sed 's/a/b/g' - substitutes all 'a's for 'b's
 i - insert lines
-	sed '2iHello' file.txt - insert 'Hello' before 2nd line
+    sed '2iHello' file.txt - insert 'Hello' before 2nd line
 c - change lines
-	sed '2cHello' file.txt - change 2nd line to 'Hello'
+    sed '2cHello' file.txt - change 2nd line to 'Hello'
 
 To write changes to file:
-	sed -i 'condition' 'action' 'file'
+    sed -i 'condition' 'action' 'file'
 To write changes to new file:
-	sed 'condition' 'action' 'file' > 'newfile'
+    sed 'condition' 'action' 'file' > 'newfile'
+
+
+# ======================
+# Examples
+# ======================
+
+# Print lines 30-60 of a file
+sed -n 30,60p FILE
+
+# Replace all occurences of string '1.0.0' with '2.0.0'
+sed 's/1\.0\.0/2.0.0/g' FILE
+
+# Remove spaces around equals signs
+sed 's/ = /=/g' FILE
